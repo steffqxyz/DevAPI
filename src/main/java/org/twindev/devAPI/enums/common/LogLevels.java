@@ -1,4 +1,4 @@
-package org.twindev.devAPI.enums;
+package org.twindev.devAPI.enums.common;
 
 public enum LogLevels {
     ERROR("<red>", "[ERROR]"), SUCCESS("<green>", "[SUCCESS]"), INFO("<gray>", "[INFO]");
