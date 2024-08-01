@@ -1,0 +1,26 @@
+title: "&a&l1st Menu"
+page-append: "{PAGE}/{PAGES}"
+rows: 3
+
+contents:
+  '1':
+    material: "DIAMOND"
+    name: "&a&lDiamond"
+    lore:
+      - "&7This is a diamond."
+    slot: 4
+    left-click-actions:
+      - "[console] give {player} diamond 1"
+      - "[message] &aYou got a diamond!"
+    right-click-actions:
+      - "[console] give {player} gold_ingot 1"
+      - "[message] &aYou got a gold ingot!"
+  '2':
+    material: "GOLD_INGOT"
+    name: "&a&lGold Ingot"
+    lore:
+      - "&7This is a gold ingot."
+    slot: 7
+    right-click-actions:
+      - "[console] give {player} gold_ingot 1"
+      - "[message] <green>You got a gold <blue>ingot!"

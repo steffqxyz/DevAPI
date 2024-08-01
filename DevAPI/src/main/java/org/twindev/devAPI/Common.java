@@ -1,5 +1,6 @@
 package org.twindev.devAPI;
 
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -9,13 +10,9 @@ import org.twindev.devAPI.enums.common.LogLevels;
 
 public final class Common {
 
-    private static final String DEFAULT_PREFIX = "";
+    private static String DEFAULT_PREFIX = "&7[&6DevAPI&7] ";
 
     private static final MiniMessage MINI_MESSAGE = MiniMessage.miniMessage();
-
-    private static String legacyToMiniMessage(String message) {
-        return LegacyConvertor.convert(message);
-    }
 
     public static void tellNoPrefix(Player player, String message) {
         player.sendMessage(colorize(message));
@@ -41,13 +38,15 @@ public final class Common {
         log(logLevel.getPrefix() + " " + logLevel.getLevel() + message);
     }
 
-    public static String colorize(String string) {
-        return legacyToMiniMessage(DEFAULT_PREFIX) + MINI_MESSAGE.deserialize(legacyToMiniMessage(string));
+    public static Component colorize(String string) {
+        return MINI_MESSAGE.deserialize(LegacyConvertor.convert(DEFAULT_PREFIX) + LegacyConvertor.convert(string));
     }
 
-    public static String setPrefix(String prefix) {
-        return colorize(prefix);
+    public static void setPrefix(String prefix) {
+        DEFAULT_PREFIX = prefix;
     }
 
-
+    public static String getDefaultPrefix() {
+        return DEFAULT_PREFIX;
+    }
 }
